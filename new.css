@@ -1,99 +1,43 @@
-body{
-    font-family: inherit;
-    background: rgb(249, 152, 152);
-}
-.animation-box{
-    width: 75%;
-    height: 27.5rem;
-    margin: 0 auto;
-    position: relative;
-}
-.first-text{
-    font-size: 3.0rem;
-    color: rgb(27, 6, 98);
-    position: absolute;
-    left: 2.5rem;
-    top: 5rem;
-    opacity: 0;
-    animation-name: silentknight1;
-    animation-duration: 18s;
-}
-.second-text{
-    font-size: 3.0rem;
-    color: rgb(27, 6, 98);
-    position: absolute;
-    left: 2.5rem;
-    top: 5rem;
-    opacity: 0;
-    animation-name: silentknight2;
-    animation-duration:  40s;
-    animation-delay: 18s;
-}
-.third-text{
-    font-size:  3.0rem;
-    color: rgb(27, 6, 98);
-    position: absolute;
-    left: 2.5rem;
-    top: 5rem;
-    opacity: 0;
-    animation-name: silentknight3;
-    animation-duration: 37s;
-    animation-delay: 57s;
-}
-.fourth-text{
-    font-size:  3.0rem;
-    color: rgb(27, 6, 98);
-    position: absolute;
-    left: 2.5rem;
-    top: 5rem;
-    opacity: 0;
-    animation-name: silentknight3;
-    animation-duration: 10s;
-    animation-delay: 94s;
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: rgb(249, 152, 152);
+  margin: 0;
+  padding: 0;
 }
 
-@keyframes silentknight1{
-    0%{
-        opacity: 1;
-}
-    75%{
-        opacity: 1;
-}
-    100%{
-        opacity: 0;
-}
-}
-@keyframes silentknight2{
-    0%{
-        opacity: 1;
-}
-    75%{
-        opacity: 1;
-}
-    100%{
-        opacity: 0;
-}
-}
-@keyframes silentknight3{
-    0%{
-        opacity: 1;
-}
-    75%{
-        opacity: 1;
-}
-    100%{
-        opacity: 1;
-}
+.slide-box {
+  width: 90%;
+  max-width: 700px;
+  margin: 5rem auto;
+  text-align: center;
 }
 
-@keyframes silentknight4{
-    0%{
-        opacity: 1;
+.slide {
+  display: none;
+  font-size: 1.5rem;
+  color: rgb(27, 6, 98);
+  padding: 1.5rem;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
-    75%{
-        opacity: 1;
+
+.slide.active {
+  display: block;
 }
-    100%{
-        opacity: 1;
+
+#nextBtn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #ff4081;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
+
+#nextBtn:hover {
+  background: #e91e63;
 }
