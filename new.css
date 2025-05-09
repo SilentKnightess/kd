@@ -1,43 +1,59 @@
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: rgb(249, 152, 152);
   margin: 0;
-  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: #330000;
+  color: #fff;
 }
 
-.slide-box {
-  width: 90%;
-  max-width: 700px;
-  margin: 5rem auto;
-  text-align: center;
+.container {
+  max-width: 90%;
+  margin: 2rem auto;
+  padding: 2rem;
+  background: #222;
+  border-radius: 12px;
+  box-shadow: 0 0 12px #000;
 }
 
 .slide {
   display: none;
-  font-size: 1.5rem;
-  color: rgb(27, 6, 98);
-  padding: 1.5rem;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 1.25rem;
+  line-height: 1.6;
+  animation: fade 0.5s ease-in-out;
 }
 
 .slide.active {
   display: block;
 }
 
-#nextBtn {
-  margin-top: 20px;
-  padding: 10px 20px;
-  background: #ff4081;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
+.nav-buttons {
+  margin-top: 1.5rem;
+  text-align: center;
 }
 
-#nextBtn:hover {
-  background: #e91e63;
+button {
+  background-color: #fff;
+  color: #330000;
+  padding: 0.5rem 1rem;
+  margin: 0 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
 }
+
+button:hover {
+  background-color: #ff9999;
+  color: #000;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+      }
