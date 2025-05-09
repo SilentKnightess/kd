@@ -1,67 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SilentKnight</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Silentknight</title>
   <link rel="stylesheet" href="new.css" />
 </head>
 <body>
   <div class="container">
     <div class="slide active">
-      <p>
-        Hi🖐🏻! I am back to tease you again 😉.actually i got to know abt ur day from ur instagram accnt as it says 1805 i.e. 18th of may . anyways i hve no idea ths assumption is correct or not 🫠 coz whtevr i assumed abt you was turned wrong so ths one pta naii 🤷🏻
-      </p>
-    </div>
-    <div class="slide">
-      <p>
-        I jst wish ur day is filled with so much joy it makes ur joints ache 👻 (ofc in good way) so tht while resting u get some time ⏱️ to reply to ur fav one 🙃 qki hme toh aap reply krenge naii 😒 hmse toh aap apni post & last scene bii hide kr dete h 😕😏 sounds like aapko time naii milta & hme last scene naii milta 🥺 evn block… well cut the crap, let's back to ur b'day 🤩
-      </p>
-    </div>
-    <div class="slide">
-      <p>
-        To the birthday doc 👨🏻‍⚕️: Wishing you a day filled with less stress than a perfectly aligned spine! May ur celebration is bone-afide fantastic as ur skills 😊😇🤩🎂🎉🥳🎊🥂 <br>
-        waise sir 🤔 don't forget to JOINT a slice of ur cake fr me 😉 <br>
-        btw orthopaedists are master of fixing & putting thngs back together na thn why are you taking ths much time 🤌🏻 jst fix ur heart & put me there with you 🫣 🥹 🥰. <br>
-        celebrate hard! if its nt today thn keep my wish in advance .✨
-      </p>
-    </div>
-    <div class="slide">
-      <p>
-        I know you won’t reply me, may be seen bii na kre aap but mera mn ho rha tha isilie i wished 😊 tke cre sir.
-      </p>
+      <p>Hi🖐🏻! I am back to tease you again 😉. Actually I got to know abt ur day from ur Instagram accnt as it says 1805 i.e. 18th of May. Anyways I hve no idea ths assumption is correct or not 🫠 coz whtevr I assumed abt you was turned wrong so ths one pta naii 🤷🏻</p>
+      <div class="nav-buttons">
+        <button class="next-btn">Next</button>
+      </div>
     </div>
 
-    <div class="nav-buttons">
-      <button id="prevBtn">Back</button>
-      <button id="nextBtn">Next</button>
+    <div class="slide">
+      <p>I jst wish ur day is filled with so much joy it makes ur joints ache 👻 (ofc in good way) so tht while resting u get some time ⏱️ to reply to ur fav one 🙃 qki hme toh aap reply krenge naii 😒 hmse toh aap apni post & last scene bii hide kr dete h 😕😏 sounds like aapko time naii milta & hme last scene naii milta 🥺 evn block. Well cut the crap, let's back to ur b'day 🤩</p>
+      <div class="nav-buttons">
+        <button class="back-btn">Back</button>
+        <button class="next-btn">Next</button>
+      </div>
+    </div>
+
+    <div class="slide">
+      <p>To the birthday doc 👨🏻‍⚕️: Wishing you a day filled with less stress than a perfectly aligned spine! May ur celebration be bone-afide fantastic as ur skills 😊😇🤩🎂🎉🥳🎊🥂 <br> Waise sir 🤔 don't forget to JOINT a slice of ur cake fr me 😉 <br> btw orthopaedists are master of fixing & putting thngs back together na thn why are you taking ths much time 🤌🏻 jst fix ur heart & put me there with you 🫣 🥹 🥰. Celebrate hard! If it's nt today thn keep my wish in advance ✨</p>
+      <div class="nav-buttons">
+        <button class="back-btn">Back</button>
+        <button class="next-btn">Next</button>
+      </div>
+    </div>
+
+    <div class="slide">
+      <p>I know you won't reply me — may be seen bhi na kre aap — but mera mn ho rha tha isilie I wished 😊 Take care sir.</p>
+      <div class="nav-buttons">
+        <button class="back-btn">Back</button>
+      </div>
     </div>
   </div>
 
   <script>
     const slides = document.querySelectorAll('.slide');
-    const nextBtn = document.getElementById('nextBtn');
-    const prevBtn = document.getElementById('prevBtn');
+    const nextBtns = document.querySelectorAll('.next-btn');
+    const backBtns = document.querySelectorAll('.back-btn');
     let current = 0;
 
-    function showSlide(index) {
-      slides.forEach(slide => slide.classList.remove('active'));
-      slides[index].classList.add('active');
-    }
-
-    nextBtn.addEventListener('click', () => {
-      if (current < slides.length - 1) {
+    nextBtns.forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        slides[current].classList.remove('active');
         current++;
-        showSlide(current);
-      }
+        slides[current].classList.add('active');
+      });
     });
 
-    prevBtn.addEventListener('click', () => {
-      if (current > 0) {
+    backBtns.forEach((btn, index) => {
+      btn.addEventListener('click', () => {
+        slides[current].classList.remove('active');
         current--;
-        showSlide(current);
-      }
+        slides[current].classList.add('active');
+      });
     });
   </script>
 </body>
-  </html>
+</html>
