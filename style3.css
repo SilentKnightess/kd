@@ -266,7 +266,8 @@ border-radius: 50px;
   box-shadow: -2px 5px 40px red;
   animation: silentknight 0.6s linear infinite;
   z-index: 0; /* Keep it behind other elements */
-    }
+    } 
+
 .cake {
   position: relative;
   margin: 40px auto 0 auto;
@@ -277,7 +278,7 @@ border-radius: 50px;
 .plate {
   width: 200px;
   height: 20px;
-  background: #c0c0c0;
+  background: #fce4ec; /* very light pink base */
   border-radius: 50%;
   position: absolute;
   bottom: 0;
@@ -288,22 +289,24 @@ border-radius: 50px;
   height: 40px;
   margin: 0 auto;
   border-radius: 5px;
-  position: relative;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .layer-bottom {
   background: #d2691e;
-  top: 100px;
+  top: 120px; /* Adjusted for better alignment */
 }
 
 .layer-middle {
   background: #ff69b4;
-  top: 60px;
+  top: 80px;
 }
 
 .layer-top {
   background: #fff0f5;
-  top: 20px;
+  top: 40px;
 }
 
 .candle {
@@ -332,8 +335,8 @@ border-radius: 50px;
 }
 
 @keyframes flicker {
-  from {
-    transform: scale(1);
+  from { 
+      transform: scale(1);
     opacity: 1;
   }
   to {
