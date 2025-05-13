@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Birthday Surprise</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+      margin: 0;
+      background: #d0eaff;
+    }
+
+    .envelope {
+      position: relative;
+      cursor: pointer;
+      margin-top: 30px;
+    }
+
+    .back {
+      width: 250px;
+      height: 200px;
+      background: #f46177;
+    }
+
+    .front {
+      position: absolute;
+      border-right: 130px solid #8e1527;
+      border-top: 100px solid transparent;
+      border-bottom: 100px solid transparent;
+      top: 0;
+      left: 120px;
+      z-index: 3;
+    }
+
+    .front::before {
+      content: "";
+      position: absolute;
+      border-top: 100px solid transparent;
+      border-bottom: 100px solid transparent;
+      border-left: 130px solid #8e1527;
+      top: -100px;
+      left: -120px;
+    }
+
+    .front::after {
+      content: "";
+      position: absolute;
+      border-bottom: 105px solid #6f0414;
+      border-left: 125px solid transparent;
+      border-right: 125px solid transparent;
+      top: -5px;
+      left: -120px;
+    }
+
+    .top {
+      position: absolute;
+      border-top: 105px solid #6f0414;
+      border-left: 125px solid transparent;
+      border-right: 125px solid transparent;
+      top: 0;
+      transform-origin: top;
+      transition: 0.4s;
+    }
+
+    .envelope:hover .top {
+      transform: rotateX(160deg);
+    }
+
+    .letter {
+      position: absolute;
+      background: pink;
+      width: 230px;
+      height: 180px;
+      top: 10px;
+      left: 10px;
+      transition: 0.2s;
+    }
+
+    .envelope:hover .letter {
+      transform: translateY(-100px);
+      z-index: 4;
+    }
+
+    .text1 {
+      position: absolute;
+      color: rgb(13, 85, 34);
+      font-family: 'Trebuchet MS', sans-serif;
+      top: -50px;
+    }
+
+    .text {
+      text-align: center;
+      font-size: 13px;
+      font-family: Arial, sans-serif;
+      margin-top: 20px;
+      font-weight: bold;
+      color: black;
+      position: relative;
+      top: -30px;
+      left: 30px;
+    }
+
+    /* Cake Box */
+    .box {
+      width: 200px;
+      height: 150px;
+      background: white;
+      margin-top: 50px;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      transition: transform 0.4s ease;
+      z-index: 1;
+    }
+
+    .cake {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%) scale(0);
+      transition: transform 0.5s ease;
+    }
+
+    .plate {
+      width: 180px;
+      height: 20px;
+      background: #fce4ec;
+      border-radius: 50%;
+    }
+
+    .layer {
+      width: 140px;
+      height: 40px;
+      margin: 0 auto;
+      border-radius: 5px;
+      position: relative;
+    }
+
+    .layer-bottom { background: #d2691e; }
+    .layer-middle { background: #ff69b4; }
+    .layer-top { background: #fff0f5; }
+
+    .candle {
+      width: 10px;
+      height: 40px;
+      background: #ff6347;
+      border-radius: 2px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 10;
+    }
+
+    .flame {
+      width: 10px;
+      height: 15px;
+      background: gold;
+      border-radius: 50%;
+      position: absolute;
+      top: -15px;
+      left: 0;
+      animation: flicker 1s infinite alternate;
+      box-shadow: 0 0 15px yellow;
+    }
+
+    @keyframes flicker {
+      from { transform: scale(1); opacity: 1; }
+      to { transform: scale(1.2); opacity: 0.8; }
+    }
+
+    .show .cake {
+      transform: translateX(-50%) scale(1);
+    }
+
+    .hide-box {
+      visibility: hidden;
+      height: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="envelope">
+    <div class="back"></div>
+    <div class="letter">
+      <div class="text">Open the box below after reading this!</div>
+    </div>
+    <div class="top"></div>
+    <div class="front"></div>
+  </div>
+
+  <div class="box" onclick="revealCake(this)">
+    <div class="cake">
+      <div class="plate"></div>
+      <div class="layer layer-bottom"></div>
+      <div class="layer layer-middle" style="top:-40px;"></div>
+      <div class="layer layer-top" style="top:-80px;"></div>
+      <div class="candle" style="top:-120px;">
+        <div class="flame"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function revealCake(box) {
+      box.classList.toggle('show');
+    }
+  </script>
+
+</body>
+  </html>
