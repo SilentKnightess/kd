@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Birthday Surprise</title>
+  <title>fr u☺️</title>
   <style>
     body {
       display: flex;
@@ -12,6 +12,7 @@
       height: 100vh;
       margin: 0;
       background: #d0eaff;
+      overflow: hidden;
     }
 
     .envelope {
@@ -142,8 +143,8 @@
     }
 
     .layer-bottom { background: #d2691e; }
-    .layer-middle { background: #ff69b4; }
-    .layer-top { background: #fff0f5; }
+    .layer-middle { background: #ff69b4; top: -40px; }
+    .layer-top { background: #fff0f5; top: -80px; }
 
     .candle {
       width: 10px;
@@ -152,6 +153,7 @@
       border-radius: 2px;
       margin: 0 auto;
       position: relative;
+      top: -120px;
       z-index: 10;
     }
 
@@ -176,9 +178,21 @@
       transform: translateX(-50%) scale(1);
     }
 
-    .hide-box {
-      visibility: hidden;
-      height: 0;
+    /* Confetti */
+    .confetti {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background-color: red;
+      animation: fall 2s linear forwards;
+      opacity: 0.8;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(600px) rotate(360deg);
+        opacity: 0;
+      }
     }
   </style>
 </head>
@@ -187,7 +201,7 @@
   <div class="envelope">
     <div class="back"></div>
     <div class="letter">
-      <div class="text">Open the box below after reading this!</div>
+      <div class="text">Open the box below after reading ths!</div>
     </div>
     <div class="top"></div>
     <div class="front"></div>
@@ -197,9 +211,9 @@
     <div class="cake">
       <div class="plate"></div>
       <div class="layer layer-bottom"></div>
-      <div class="layer layer-middle" style="top:-40px;"></div>
-      <div class="layer layer-top" style="top:-80px;"></div>
-      <div class="candle" style="top:-120px;">
+      <div class="layer layer-middle"></div>
+      <div class="layer layer-top"></div>
+      <div class="candle">
         <div class="flame"></div>
       </div>
     </div>
@@ -208,8 +222,21 @@
   <script>
     function revealCake(box) {
       box.classList.toggle('show');
+      if (box.classList.contains('show')) {
+        for (let i = 0; i < 100; i++) {
+          const confetti = document.createElement('div');
+          confetti.classList.add('confetti');
+          confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+          confetti.style.left = Math.random() * window.innerWidth + 'px';
+          confetti.style.top = '-10px';
+          confetti.style.animationDuration = 2 + Math.random() * 2 + 's';
+          confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+          document.body.appendChild(confetti);
+          setTimeout(() => confetti.remove(), 4000);
+        }
+      }
     }
   </script>
 
 </body>
-  </html>
+</html>
